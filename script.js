@@ -18,41 +18,45 @@ const onClickAdd = () => {
     //Create button(complete)
     const completeButton = document.createElement("button");
     completeButton.innerText ="Complete";
-    
+
+    //Create button(Delete)
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText ="Delete";
+
     completeButton.addEventListener("click", () => {
         //Delete parent element of clicked delete button from the incomplete list
         deleteFromIncompleteList(completeButton.parentNode.parentNode);
 
-        //li tag
-        const list = completeButton.parentNode.parentNode;
-        
-        //Create div tag
-        const completeDiv = completeButton.parentNode
+        //Create div
+    const divComp = document.createElement("div");
+    divComp.className = "list-row"
+    
+    //Create p
+    const pComp = document.createElement("p");
+    pComp.innerText = completeButton.parentNode.firstElementChild.innerText;
 
-        //Text from todo input
-        const text = completeDiv.firstElementChild.innerText;
-        list.textContent = null;
+    //Create li
+    const liComp = document.createElement("li");
 
-        //Create  tag
-        const completeP = document.createElement("p");
-        completeP.innerText = text;
-        
+console.log(liComp);
+console.log(divComp);
+console.log(pComp);
+
+      
         //Create button tag
         const backButton = document.createElement("button");
         backButton.innerText = "Revert";
 
         //Set child nodes
-        completeDiv.appendChild(completeP);
-        completeDiv.appendChild(backButton);
-        list.appendChild(completeDiv);
+        divComp.appendChild(pComp);
+        divComp.appendChild(backButton);
+        liComp.appendChild(divComp);
  
-        document.getElementById("complete-list").appendChild(addTarget);
+        document.getElementById("complete-list").appendChild(liComp);
 
     })
 
-      //Create button(Delete)
-      const deleteButton = document.createElement("button");
-      deleteButton.innerText ="Delete";
+
       deleteButton.addEventListener("click", ()=>{
         //Delete parent element of clicked delete button from the incomplete list
         deleteFromIncompleteList(deleteButton.parentNode.parentNode);
