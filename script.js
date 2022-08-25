@@ -18,10 +18,18 @@ const onClickAdd = () => {
     //Create button(complete)
     const completeButton = document.createElement("button");
     completeButton.innerText ="Complete";
+    completeButton.addEventListener("click", () => {
+
+    })
 
       //Create button(Delete)
       const deleteButton = document.createElement("button");
       deleteButton.innerText ="Delete";
+      deleteButton.addEventListener("click", ()=>{
+        //Delete parent element of clicked delete button from the incomplete list
+        const deleteTarget =deleteButton.parentNode.parentNode;
+        document.getElementById("incomplete-list").removeChild(deleteTarget);
+      })
 
     //Set child element of div
     li.appendChild(div);
