@@ -15,9 +15,19 @@ const onClickAdd = () => {
     //Create li
     const li = document.createElement("li");
 
+    //Create button(complete)
+    const completeButton = document.createElement("button");
+    completeButton.innerText ="Complete";
+
+      //Create button(Delete)
+      const deleteButton = document.createElement("button");
+      deleteButton.innerText ="Delete";
+
     //Set child element of div
-    const list = div.appendChild(p);
-    li.appendChild(list)
+    li.appendChild(div);
+    div.appendChild(p);
+    div.appendChild(completeButton);
+    div.appendChild(deleteButton);
 
     //Add to incomplete list
     document.getElementById("incomplete-list").appendChild(li);
